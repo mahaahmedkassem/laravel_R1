@@ -62,3 +62,25 @@ Route::prefix('product')->group(function(){
 }
 );
 
+
+
+Route::prefix('Web structure')->group(function(){
+    Route::get('/',function(){
+        return'Web structure home page';
+    });
+
+    Route::get('About',function(){
+        return'About page';
+    });
+    Route::get('Contact us',function(){
+        return'Contact us page';
+    });
+    Route::get('Support',function(){
+        return'support page';
+    });
+
+}
+);
+
+ 
+

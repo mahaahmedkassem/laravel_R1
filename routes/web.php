@@ -103,7 +103,7 @@ Route::prefix('Web structure')->group(function(){
         return'HR page';
     });
     Route::get('ict',function(){
-        return'ict';
+        return'ict page';
     });
     Route::get('markting',function(){
         return'markting page';

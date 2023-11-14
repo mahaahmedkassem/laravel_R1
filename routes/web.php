@@ -44,6 +44,7 @@ Route::get ('user/{name}/{age?}',function($name,$age=0){
 
 // ->where(['age'=>'[0-9]+' ,'name'=>'[a-zA-z0-9]+']);
 
+
 Route::prefix('product')->group(function(){
     Route::get('/',function(){
         return'producy home page';
@@ -64,6 +65,7 @@ Route::prefix('product')->group(function(){
 
 
 
+
 Route::prefix('Web structure')->group(function(){
     Route::get('/',function(){
         return'Web structure home page';
@@ -75,9 +77,43 @@ Route::prefix('Web structure')->group(function(){
     Route::get('Contact us',function(){
         return'Contact us page';
     });
-    Route::get('Support',function(){
-        return'support page';
+   Route::prefix('support')->group(function(){
+    Route::get('/',function(){
+        return'support home page';
     });
+
+    Route::get('chat',function(){
+        return'chat page';
+    });
+    Route::get('call',function(){
+        return'call';
+    });
+    Route::get('ticket',function(){
+        return'ticket page';
+    });
+
+}
+);
+ Route::prefix('traning')->group(function(){
+    Route::get('/',function(){
+        return'traning home page';
+    });
+
+    Route::get('HR',function(){
+        return'HR page';
+    });
+    Route::get('ict',function(){
+        return'ict';
+    });
+    Route::get('markting',function(){
+        return'markting page';
+    });
+    Route::get('logistic',function(){
+        return'ligistic page';
+    });
+
+}
+);
 
 }
 );

@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ExampleController;
+use App\Http\Controllers\CarlistController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -118,5 +119,33 @@ Route::prefix('Web structure')->group(function(){
 }
 );
 
- 
+Route::get('cv', function () {
+    return view('cv');
+});
+  
+Route::get('login', function () {
+    return view('login');
+});
+
+Route::get('receive', function () {
+    return 'data received';
+})->name('recive');
+
+Route::get('test1',[ExampleController::class, 'test1']);
+
+
+
+
+
+
+Route::get('addcar', function () {
+    return view('addcar');
+});
+
+Route::post('caradder', function () {
+    return 'data received';
+})->name('caradded');
+
+Route::get('test2',[CarlistController ::class, 'test2']);
+
 

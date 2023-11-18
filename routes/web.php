@@ -119,15 +119,21 @@ Route::prefix('Web structure')->group(function(){
 }
 );
 
+
+
+
 Route::get('cv', function () {
     return view('cv');
 });
   
+
+
+
 Route::get('login', function () {
     return view('login');
 });
 
-Route::get('receive', function () {
+Route::post('receive', function () {
     return 'data received';
 })->name('recive');
 
@@ -143,7 +149,9 @@ Route::get('addcar', function () {
 });
 
 Route::post('caradder', function () {
-    return 'data received';
+    return $_POST['title'] ;
+    
+    
 })->name('caradded');
 
 Route::get('test2',[CarlistController ::class, 'test2']);

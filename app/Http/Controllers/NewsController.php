@@ -44,7 +44,7 @@ class NewsController extends Controller
         $new->published = true;
         $new->author=$request->author;
         $new->save();
-        return "newa is" .$request->newstitle;
+        return "the news is " .  $request->newstitle;
 
 
 

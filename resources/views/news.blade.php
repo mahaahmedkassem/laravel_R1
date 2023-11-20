@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Add Car</title>
+  <title>Add NEWS</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -12,23 +12,26 @@
 <body>
 
 <div class="container">
-  <h2>Add Car</h2>
-  <form action="{{ route('cars')}}" method="post" >
+  <h2>news</h2>
+  <form action="{{ route('newsadded')}}" method="post" >
   @csrf
     <div class="form-group">
       <label for="title">Title:</label>
-      <input type="text" class="form-control" id="title" placeholder="Enter title" name="cartitle">
+      <input type="text" class="form-control" id="title" placeholder="Enter title" name="newstitle">
     </div>
     <div class="form-group">
-      <label for="price">Price:</label>
-      <input type="number" class="form-control" id="price" placeholder="Enter Price" name="price">
+      <label for="content">content:</label>
+      <input type="text" class="form-control" id="content" placeholder="content" name="content">
     </div>
+
+   
+
     <div class="form-group">
-        <label for="description">Description:</label>
-        <textarea class="form-control" rows="5" name="describtion" id="description"></textarea>
-      </div> 
+      <label for="price">author:</label>
+      <input type="text" class="form-control" id="author" placeholder="author" name="author">
+    </div>
     <div class="checkbox">
-      <label><input type="checkbox" name="remember"> Published</label>
+      <label><input type="checkbox" name="published"> Published</label>
     </div>
     <button type="submit" class="btn btn-default">Add</button>
   </form>

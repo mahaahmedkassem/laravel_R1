@@ -177,7 +177,18 @@ Route::post('cars',[CarController ::class, 'store'])->name('cars');
     Route::get('addnews',[NewsController ::class, 'create']);// يعرض ألنموذج
 Route::post('newsadded',[NewsController ::class, 'store'])->name('newsadded');
 
-//أول واحده اسم ال url 
+//أول واحده اسم ال url انا بختار اي اسم
 //تاني واحده الاسم الي في الكونترولر
 //اسم الراوت هو الي في الاكشن في صفحة البلاد ->
+//ا في الراوت الاولاني بيبقى في create ده بيظهر الفورم
+// ده بضيف للداتا بيز في الراوت التاني بيقى في الستور في الكونترولر
+Route::get('thecar',[CarController ::class, 'index']);
 
+Route::get('editCar/{id}',[CarController ::class, 'edit']);
+
+//اسم url نفس الاسم الي كتبناه في الايديت في البلاد
+Route::put('updateCar/{id}',[CarController ::class, 'update'])->name('updateCar');
+
+
+Route::get('shownews',[NewsController ::class, 'index']);
+Route::get('editNews/{id}',[NewsController ::class, 'edit']);

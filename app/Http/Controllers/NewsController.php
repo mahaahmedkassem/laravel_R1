@@ -13,7 +13,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
+        $news= New1::get();
+        return view('shownews',compact('news'));
     }
 
     /**
@@ -21,7 +22,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view ("news");
+        return view ("news");   //فايل الBlade
     }
 
     /**
@@ -41,7 +42,11 @@ class NewsController extends Controller
 
         $new->newstitle =$request->newstitle;
         $new->content=$request->content;
-        $new->published = true;
+        if(isset($request->published)){
+            $new->published = true;
+        }else{
+            $new->published = false;
+        }
         $new->author=$request->author;
         $new->save();
         return "the news is " .  $request->newstitle;
@@ -64,7 +69,8 @@ class NewsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $new = New1::findorfail($id);
+        return view ('updateNews',compact('new'));
     }
 
     /**

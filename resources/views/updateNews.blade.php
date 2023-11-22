@@ -13,8 +13,9 @@
 
 <div class="container">
   <h2>news</h2>
-  <form action="{{ route('newsadded')}}" method="post" >
+  <form action="{{ route('updateNew',$new->id)}}" method="post" >
   @csrf
+  @method('put')
     <div class="form-group">
       <label for="title">Title:</label>
       <input type="text" class="form-control" id="title" placeholder="Enter title" name="newstitle" value="{{$new->newstitle}}">

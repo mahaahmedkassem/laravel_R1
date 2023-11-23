@@ -190,6 +190,7 @@ Route::get('editCar/{id}',[CarController ::class, 'edit']);
 Route::put('updateCar/{id}',[CarController ::class, 'update'])->name('updateCar');
 
 
+
 Route::get('shownews',[NewsController ::class, 'index']);
 Route::get('editNews/{id}',[NewsController ::class, 'edit']);
 Route::put('updateNews/{id}',[NesController ::class, 'update'])->name('updateNew');

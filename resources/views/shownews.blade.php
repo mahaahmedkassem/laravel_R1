@@ -16,6 +16,7 @@
   <table class="table table-hover">
     <thead>
       <tr>
+      <th>ID</th>
         <th>title</th>
         <th>content</th>
         <th>author</th>
@@ -26,6 +27,7 @@
     <tbody>
       @foreach($news as $new)
     <tr>
+    <td>{{$new->id}}</td>
         <td>{{$new->newstitle}}</td>
         <td>{{$new->content}}</td>
         <td>{{$new->author}}</td>

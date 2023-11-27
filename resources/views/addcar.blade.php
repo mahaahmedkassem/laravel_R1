@@ -28,7 +28,7 @@
         <textarea class="form-control" rows="5" name="describtion" id="description"></textarea>
       </div> 
     <div class="checkbox">
-      <label><input type="checkbox" name="remember"> Published</label>
+      <label><input type="checkbox" name="published"> Published</label>
     </div>
     <button type="submit" class="btn btn-default">Add</button>
   </form>

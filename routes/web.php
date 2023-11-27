@@ -7,6 +7,9 @@ use App\Http\Controllers\CarController;
 use App\Http\Controllers\addcar;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\news;
+use App\Http\Controllers\ClintController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -174,8 +177,7 @@ Route::post('cars',[CarController ::class, 'store'])->name('cars');
     //     return 'news added';
     // })->name('newsadded'); 
 
-    Route::get('addnews',[NewsController ::class, 'create']);// يعرض ألنموذج
-Route::post('newsadded',[NewsController ::class, 'store'])->name('newsadded');
+ 
 
 //أول واحده اسم ال url انا بختار اي اسم
 //تاني واحده الاسم الي في الكونترولر
@@ -188,9 +190,37 @@ Route::get('editCar/{id}',[CarController ::class, 'edit']);
 
 //اسم url نفس الاسم الي كتبناه في الايديت في البلاد
 Route::put('updateCar/{id}',[CarController ::class, 'update'])->name('updateCar');
+Route::get('deleteCar/{id}',[CarController ::class, 'destroy']);
+Route::get('carDetail/{id}', [CarController::class, 'show'])->name('carDetail');
 
 
 
-Route::get('shownews',[NewsController ::class, 'index']);
-Route::get('editNews/{id}',[NewsController ::class, 'edit']);
-Route::put('updateNews/{id}',[NesController ::class, 'update'])->name('updateNew');
+
+
+
+
+
+
+
+   Route::get('addnews',[NewsController ::class, 'create']);//  بتاع الادخال يعرض ألنموذج
+Route::post('newsadded',[NewsController ::class, 'store'])->name('newsadded');
+//اللينك الي بيروحله لما نضغط سبميت
+Route::get('shownews',[NewsController ::class, 'index']); // يعرض جدول الداتا الي في الجدول
+Route::get('editNews/{id}',[NewsController ::class, 'edit']);  
+// الاكشن بتاعه هيبقى Updatenews   اسم البلاد فايل الجديد في ال الايديت بتاع الكونترولر
+ //لاسم بتاع الايديت  الراوت ده عملته عن طريق اللينك  editNews ده الي كتبته في البلاد
+Route::put('updateNews/{id}',[NewsController ::class, 'update'])->name('updateNew');
+Route::get('DeleteNews/{id}',[NewsController ::class, 'destroy']);
+Route::get('NewsDetail/{id}', [NewsController::class, 'show'])->name('NewsDetail');
+
+
+
+
+
+
+Route::get('addclient',[ClintController ::class, 'create']);
+Route::post('clintadded',[ClintController ::class, 'store'])->name('clientadded');
+Route::get('showclients',[ClintController ::class, 'index']);
+Route::get('editClients/{id}',[ClintController ::class, 'edit']); 
+Route::put('updateclient/{id}',[ClintController::class, 'update'])->name('updateclient');
+

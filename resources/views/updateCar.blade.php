@@ -29,7 +29,7 @@
         <textarea class="form-control" rows="5" name="describtion" id="description">{{$car->describtion}}</textarea>
       </div> 
     <div class="checkbox">
-      <label><input type="checkbox" name="remember" @checked($car->published)   > Published</label>
+      <label><input type="checkbox" name="published" @checked($car->published)   > Published</label>
     </div>
     <button type="submit" class="btn btn-default">update</button>
   </form>

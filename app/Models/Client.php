@@ -5,15 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class New1 extends Model
+class Client extends Model
 {
     use HasFactory;
+    protected $fillable = 
+    ['clintname', 
+    'adress',
+    'contact',
+   'published'];
 
-    protected $fillable = [
-        'newstitle',
-        'content',
-        'published',
-        'author'
-        
-        ];
 }

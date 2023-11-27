@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>cars list</title>
+  <title>clients</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -11,30 +11,34 @@
 <body>
 
 <div class="container">
-  <h2>car list</h2>
+  <h2>clients list</h2>
   <p>The .table-hover class enables a hover state on table rows:</p>            
   <table class="table table-hover">
     <thead>
       <tr>
-        <th>title</th>
-        <th>content</th>
+      <th>ID</th>
+        <th>name</th>
+        <th>adress</th>
+        <th>contact</th>
         <th>published</th>
         <th>EDIT</th>
       </tr>
     </thead>
     <tbody>
-      @foreach($cars as $car)
+      @foreach($clients as $client)
     <tr>
-        <td>{{$car->cartitle}}</td>
-        <td>{{$car->describtion}}</td>
-        <td>@if ($car->published)
-          yes
+    <td>{{$client->id}}</td>
+        <td>{{$client->id}}</td>
+        <td>{{$client->id}}</td>
+        <td>{{$client->id}}</td>
+        <td>@if ($client->published)
+          yes ✅
           @else
-          no
+          no 🚫
           @endif
 
       </td>
-      <td><a href="editCar/{{$car->id}}">Edit</a></td>
+      <td><a href="editClients/{{$client->id}}">Edit</a></td>
       </tr>
       @endforeach
      

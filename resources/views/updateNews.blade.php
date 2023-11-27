@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Add NEWS</title>
+  <title>EDIT NEWS</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -12,7 +12,7 @@
 <body>
 
 <div class="container">
-  <h2>update news</h2>
+  <h2>EDIT news</h2>
   <form action="{{ route('updateNew',$new->id)}}" method="post" >
   @csrf
   @method('put')

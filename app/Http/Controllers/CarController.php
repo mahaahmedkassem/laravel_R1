@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use App\Models\Car;
 
 
@@ -10,13 +11,16 @@ use App\Models\Car;
 
 class CarController extends Controller
 {
+
+    private $columns = ['cartitle', 'describtion','published'];
+  
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
       $cars = Car::get();
-      return view('cars',compact('cars'));
+      return view('carslist',compact('cars'));
     }
 
     /**
@@ -49,7 +53,10 @@ class CarController extends Controller
      */
     public function show(string $id)
     {
-        //
+        
+
+        $car = Car::findOrFail($id);
+        return view('carDetail',compact('car'));
     }
 
     /**
@@ -67,7 +74,15 @@ class CarController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+       
+       
+        $data = $request->only($this->columns);
+        $data['published'] = isset($data['published'])? true:false;
+
+        Car::where('id', $id)->update($data);
+
+       
+       return "updated";
     }
 
     /**
@@ -75,6 +90,20 @@ class CarController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $cars = Car::get();
+       Car::where('id', $id)->delete();
+        return view('carslist',compact('cars'));
     }
 }
+
+
+// public function update(Request $request, string $id)
+//     {
+
+//         $data = $request->only($this->columns);
+//         $data['published'] = isset($data['published'])? true:false;
+
+//         Car::where('id', $id)->update($data);
+//        Car::where('id', $id)->update($request->only($this->columns));
+
+//         return redirect('car-index');

@@ -30,7 +30,7 @@ class ClintController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request )
+    public function store(Request $request) : RedirectResponse
     {
        
         $client = new Client();
@@ -43,7 +43,10 @@ class ClintController extends Controller
             $client->published = false;
         }
         $client->save();
-        return 'Added Successfully';
+        return redirect('showclients');;
+       
+
+      
 
  
 
@@ -54,7 +57,10 @@ class ClintController extends Controller
      */
     public function show(string $id)
     {
-        //
+        
+
+        $client = Client::findOrFail($id);
+        return view('clientDetail',compact('client'));
     }
 
     /**
@@ -87,6 +93,8 @@ class ClintController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $clients = Client::get();
+        Client::where('id', $id)->delete();
+         return view('showclient',compact('clients'));
     }
 }

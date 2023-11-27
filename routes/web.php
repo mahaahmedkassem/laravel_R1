@@ -223,4 +223,6 @@ Route::post('clintadded',[ClintController ::class, 'store'])->name('clientadded'
 Route::get('showclients',[ClintController ::class, 'index']);
 Route::get('editClients/{id}',[ClintController ::class, 'edit']); 
 Route::put('updateclient/{id}',[ClintController::class, 'update'])->name('updateclient');
+Route::get('deleteClients/{id}',[ClintController ::class, 'destroy']);
+Route::get('clientDetail/{id}', [ClintController::class, 'show'])->name('clientDetail');
 

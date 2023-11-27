@@ -22,6 +22,8 @@
         <th>contact</th>
         <th>published</th>
         <th>EDIT</th>
+        <th>DELETE</th>
+        <th>SHOW</th>
       </tr>
     </thead>
     <tbody>
@@ -39,6 +41,8 @@
 
       </td>
       <td><a href="editClients/{{$client->id}}">Edit</a></td>
+      <td><a href="deleteClients/{{$client->id}}">delete</a></td>
+      <td><a href="clientDetail/{{$client->id}}">show</a></td>
       </tr>
       @endforeach
      

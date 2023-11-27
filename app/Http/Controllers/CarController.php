@@ -72,7 +72,7 @@ class CarController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id): RedirectResponse
     {
        
        
@@ -82,7 +82,7 @@ class CarController extends Controller
         Car::where('id', $id)->update($data);
 
        
-       return "updated";
+       return redirect('thecar');
     }
 
     /**

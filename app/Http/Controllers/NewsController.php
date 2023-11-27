@@ -31,7 +31,7 @@ class NewsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         
         
@@ -52,7 +52,7 @@ class NewsController extends Controller
         }
         $new->author=$request->author;
         $new->save();
-        return "the news is " .  $request->newstitle;
+        return redirect('shownews');
 
 
 
@@ -82,7 +82,7 @@ class NewsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id): RedirectResponse
     {
         
 
@@ -92,7 +92,7 @@ class NewsController extends Controller
         New1::where('id', $id)->update($data);
 
        
-       return 'updated';
+        return redirect('shownews');
     }
 
     /**

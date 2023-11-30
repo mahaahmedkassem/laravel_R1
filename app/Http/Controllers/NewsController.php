@@ -31,28 +31,33 @@ class NewsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
         
         
-        $new = new New1;
-        // $new->newstitle ="war";
-        // $new->content ="war start";
-        // $new->published = true;
-        // $new->author="maha";
-        //  $new->save();
-        //  return "added";
+        // $new = new New1;
+      
 
-        $new->newstitle =$request->newstitle;
-        $new->content=$request->content;
-        if(isset($request->published)){
-            $new->published = true;
-        }else{
-            $new->published = false;
-        }
-        $new->author=$request->author;
-        $new->save();
-        return redirect('shownews');
+        // $new->newstitle =$request->newstitle;
+        // $new->content=$request->content;
+        // if(isset($request->published)){
+        //     $new->published = true;
+        // }else{
+        //     $new->published = false;
+        // }
+        // $new->author=$request->author;
+        // $new->save();
+        // return redirect('shownews');
+        $request->validate([
+            'newstitle' => 'required|string|max:50',
+            'content' => 'required|string',
+            'author' => 'required|string'
+            ]);
+            $data = $request->only($this->columns);
+            $data['published'] = isset($data['published'])? true : false;
+        
+            New1::create($data);
+            return 'done';
 
 
 
@@ -105,4 +110,23 @@ class NewsController extends Controller
         New1::where('id', $id)->delete();
          return view('shownews',compact('news'));
     }
+
+    public function trashed(){
+        $news = New1::onlyTrashed()->get();
+              return view ('trashednews', compact('news'));
+    }
+
+    public function restore (string $id):  RedirectResponse
+    {
+        New1::where('id', $id)->restore();
+        return redirect('shownews');
+    }
+
+    public function forcedelete(string $id): RedirectResponse
+    {
+        New1::where('id', $id)->forceDelete();
+        return redirect ('shownews');
+
+    }
+
 }

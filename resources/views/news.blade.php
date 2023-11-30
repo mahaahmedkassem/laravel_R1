@@ -17,18 +17,33 @@
   @csrf
     <div class="form-group">
       <label for="title">Title:</label>
-      <input type="text" class="form-control" id="title" placeholder="Enter title" name="newstitle">
+      <input type="text" class="form-control" id="title" placeholder="Enter title" name="newstitle" value="{{ old('newstitle') }}">
+      @error('newstitle')
+      <div class="alert alert-warning">
+      {{$message}}
+      </div>
+      @enderror
     </div>
     <div class="form-group">
       <label for="content">content:</label>
-      <input type="text" class="form-control" id="content" placeholder="content" name="content">
+      <input type="text" class="form-control" id="content" placeholder="content" name="content" value="{{ old('content') }}">
+      @error('content')
+      <div class="alert alert-warning">
+      {{$message}}
+      </div>
+      @enderror
     </div>
 
    
 
     <div class="form-group">
       <label for="price">author:</label>
-      <input type="text" class="form-control" id="author" placeholder="author" name="author">
+      <input type="text" class="form-control" id="author" placeholder="author" name="author" value="{{ old('author') }}">
+      @error('author')
+      <div class="alert alert-warning">
+      {{$message}}
+      </div>
+      @enderror
     </div>
     <div class="checkbox">
       <label><input type="checkbox" name="published"> Published</label>

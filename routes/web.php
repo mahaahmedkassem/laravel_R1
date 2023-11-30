@@ -162,22 +162,9 @@ Route::get('test2',[CarlistController ::class, 'test2']);
 
 Route::get('addshow',[CarController ::class, 'create']);// يعرض ألنموذج
 Route::post('cars',[CarController ::class, 'store'])->name('cars');
- 
-// //if(isset($request->published)){
-//     $cars->published = true;
-// }else{
-//     $cars->published = false;
-// }
-
-// Route::get('news', function () {
-//         return view('news');
-//     });
-
-    // Route::post('addnews', function () {
-    //     return 'news added';
-    // })->name('newsadded'); 
-
- 
+Route::get('trashed',[CarController ::class, 'trashed']);
+Route::get('restorecar/{id}',[CarController ::class, 'restore']);   //لينك في البلاد بتاع تراش
+Route::get('forcedelete/{id}',[CarController ::class, 'forcedelete']);
 
 //أول واحده اسم ال url انا بختار اي اسم
 //تاني واحده الاسم الي في الكونترولر
@@ -212,6 +199,9 @@ Route::get('editNews/{id}',[NewsController ::class, 'edit']);
 Route::put('updateNews/{id}',[NewsController ::class, 'update'])->name('updateNew');
 Route::get('DeleteNews/{id}',[NewsController ::class, 'destroy']);
 Route::get('NewsDetail/{id}', [NewsController::class, 'show'])->name('NewsDetail');
+Route::get('trashednews',[NewsController ::class, 'trashed']);
+Route::get('restorenews/{id}',[NewsController ::class, 'restore']);
+Route::get('forcedeletenews/{id}',[NewsController::class, 'forcedelete']);
 
 
 

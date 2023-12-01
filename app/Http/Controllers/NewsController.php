@@ -31,7 +31,7 @@ class NewsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         
         
@@ -57,7 +57,7 @@ class NewsController extends Controller
             $data['published'] = isset($data['published'])? true : false;
         
             New1::create($data);
-            return 'done';
+            return redirect('shownews');
 
 
 

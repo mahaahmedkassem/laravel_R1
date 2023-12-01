@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('adress');
             $table->string('contact',100);
             $table->boolean('published');
-            
+            $table->softDeletes();
             $table->timestamps();
         });
     }

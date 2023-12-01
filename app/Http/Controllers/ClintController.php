@@ -33,17 +33,31 @@ class ClintController extends Controller
     public function store(Request $request) : RedirectResponse
     {
        
-        $client = new Client();
-        $client->clintname = $request->clintname;
-        $client->adress = $request->adress;
-        $client->contact = $request->contact;
-        if(isset($request->published)){
-            $client->published = true;
-        }else{
-            $client->published = false;
-        }
-        $client->save();
-        return redirect('showclients');;
+        // $client = new Client();
+        // $client->clintname = $request->clintname;
+        // $client->adress = $request->adress;
+        // $client->contact = $request->contact;
+        // if(isset($request->published)){
+        //     $client->published = true;
+        // }else{
+        //     $client->published = false;
+        // }
+        // $client->save();
+        // return redirect('showclients');;
+
+
+        $request->validate([
+            'clintname' => 'required|string|max:50',
+            'adress' => 'required|string',
+            'contact' => 'required|string'
+            
+
+            ]);
+            $data = $request->only($this->columns);
+            $data['published'] = isset($data['published'])? true : false;
+        
+            Client::create($data);
+            return redirect ('showclients');
        
 
       
@@ -96,5 +110,23 @@ class ClintController extends Controller
         $clients = Client::get();
         Client::where('id', $id)->delete();
          return view('showclient',compact('clients'));
+    }
+
+    public function trashed(){
+        $clients = Client::onlyTrashed()->get();
+              return view ('trashedclient', compact('clients'));
+    }
+
+    public function restore (string $id):  RedirectResponse
+    {
+        Client::where('id', $id)->restore();
+        return redirect('showclients');
+    }
+
+    public function forcedelete(string $id): RedirectResponse
+    {
+        Client::where('id', $id)->forceDelete();
+        return redirect ('showclients');
+
     }
 }

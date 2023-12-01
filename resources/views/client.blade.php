@@ -17,14 +17,29 @@
     <div class="form-group">
       <label for="text">clintname:</label>
       <input type="text" class="form-control" id="text" placeholder="Enter name" name="clintname">
+      @error('clintname')
+      <div class="alert alert-warning">
+      {{$message}}
+      </div>
+      @enderror
     </div>
     <div class="form-group">
       <label for="text">adress:</label>
       <input type="text" class="form-control" id="description" placeholder="Enter adress" name="adress">
+      @error('adress')
+      <div class="alert alert-warning">
+      {{$message}}
+      </div>
+      @enderror
     </div>
     <div class="form-group">
       <label for="email">contact:</label>
       <input type="email" class="form-control" id="email" placeholder="contact" name="contact">
+      @error('contact')
+      <div class="alert alert-warning">
+      {{$message}}
+      </div>
+      @enderror
     </div>
    
     <div class="checkbox">

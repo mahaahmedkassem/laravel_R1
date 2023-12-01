@@ -215,4 +215,7 @@ Route::get('editClients/{id}',[ClintController ::class, 'edit']);
 Route::put('updateclient/{id}',[ClintController::class, 'update'])->name('updateclient');
 Route::get('deleteClients/{id}',[ClintController ::class, 'destroy']);
 Route::get('clientDetail/{id}', [ClintController::class, 'show'])->name('clientDetail');
+Route::get('trashedclient',[ClintController ::class, 'trashed']);
+Route::get('clientrestore/{id}',[ClintController ::class, 'restore']);
+Route::get('forcedeleteClients/{id}',[ClintController::class, 'forcedelete']);
 

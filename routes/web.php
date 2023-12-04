@@ -143,6 +143,8 @@ Route::get('cv', function () {
 
 Route::get('login',[ExampleController::class, 'login']);
 Route::post('test1',[ExampleController::class, 'recive'])->name('recive');
+Route::get('showupload',[ExampleController::class, 'showupload']);
+Route::post('upload',[ExampleController::class, 'upload'])->name('upload');
 //أول واحده اسم ال url 
 //تاني واحده الاسم الي في الكونترولر
 //اسم الراوت هو الي في الاكشن في صفحة البلاد

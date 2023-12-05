@@ -41,7 +41,7 @@ class CarController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         // $cars = new Car;      //اسم الموديل
         // $cars->cartitle =$request->cartitle;
@@ -81,7 +81,7 @@ class CarController extends Controller
         
             Car::create($data);
 
-            return 'done';
+          return redirect('thecar'); 
 
 
 
@@ -114,13 +114,14 @@ class CarController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id): RedirectResponse
     {
        
         $data = Car::find($id);
         $data=$request->validate([
             'cartitle' => 'required|string|max:50',
-           'describtion' => 'required|string'
+           'describtion' => 'required|string',
+           
            
           ]);
         

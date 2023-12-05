@@ -48,11 +48,17 @@ class NewsController extends Controller
         // $new->author=$request->author;
         // $new->save();
         // return redirect('shownews');
+
+        $messages=[
+            'newstitle.required'=>'الرجاء اضافة العنوان',
+            'content.required'=>'content is required',
+            'author.required'=>'author is required'
+        ];
         $request->validate([
             'newstitle' => 'required|string|max:50',
             'content' => 'required|string',
             'author' => 'required|string'
-            ]);
+            ], $messages);
             $data = $request->only($this->columns);
             $data['published'] = isset($data['published'])? true : false;
         

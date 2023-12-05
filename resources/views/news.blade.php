@@ -13,7 +13,7 @@
 
 <div class="container">
   <h2>news</h2>
-  <form action="{{ route('newsadded')}}" method="post" >
+  <form action="{{ route('newsadded')}}" method="post"  enctype="multipart/form-data">
   @csrf
     <div class="form-group">
       <label for="title">Title:</label>

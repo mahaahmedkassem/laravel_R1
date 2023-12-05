@@ -13,7 +13,7 @@
 
 <div class="container">
   <h2>EDIT news</h2>
-  <form action="{{ route('updateNew',$new->id)}}" method="post" >
+  <form action="{{ route('updateNew',$new->id)}}" method="post" enctype="multipart/form-data">
   @csrf
   @method('put')
     <div class="form-group">

@@ -124,7 +124,7 @@ class CarController extends Controller
            
           ]);
         
-        $data['published'] = isset($data['published'])? true:false;
+          
 
        
         if ($request->hasfile('image')){
@@ -138,7 +138,7 @@ class CarController extends Controller
             
         }
         
-        
+        $data['published'] = isset($request['published'])? true:false;
         Car::where('id', $id)->update($data);
         return redirect('thecar');    
             

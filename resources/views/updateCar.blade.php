@@ -31,7 +31,7 @@
       <div class="form-group">
             <label for="image">Image:</label>
             <input type="file" class="form-control" id="image" name="image" value="{{ $car->image }}">
-           
+            <img src="{{ asset('assets/images/'.$car->image) }}" alt="cars" style="width:150px;">
         </div>
       
     <div class="checkbox">

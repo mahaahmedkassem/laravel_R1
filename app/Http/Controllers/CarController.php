@@ -121,27 +121,41 @@ class CarController extends Controller
         $data=$request->validate([
             'cartitle' => 'required|string|max:50',
            'describtion' => 'required|string',
-           
-           
+        
           ]);
         
-          
-
        
         if ($request->hasfile('image')){
             $file =$request->file('image');
-            // $file_extension = $file->getClientOriginalExtension();
-            // $file_name = time() . '.' . $file_extension;
-            // $file->move($path, $file_name);
+          
             $fileName=$this->uploadFile($request->image, 'assets/images');
             $data['image']=$fileName;
-           
-            
+               
         }
         
         $data['published'] = isset($request['published'])? true:false;
         Car::where('id', $id)->update($data);
         return redirect('thecar');    
+
+        // $messages= $this->messages();
+
+        // $data = $request->validate([
+        //     'carTitle'=>'required|string',
+        //     'description'=>'required|string',
+        //     'image' => 'sometimes|mimes:png,jpg,jpeg|max:2048',
+        // ], $messages);
+       
+        // $data['published'] = isset($request->published);
+
+        // // update image if new file selected
+        // if($request->hasFile('image')){
+        //     $fileName = $this->uploadFile($request->image, 'assets/images');
+        //     $data['image']= $fileName;
+        // }
+
+        // //return dd($data);
+        // Car::where('id', $id)->update($data);
+        // return 'Updated';
             
         
        
@@ -182,6 +196,13 @@ class CarController extends Controller
         Car::where('id', $id)->forceDelete();
         return redirect ('thecar');
 
+    }
+
+    public function messages(){
+        return [
+            'cartitle.required'=>'الرجاء اضافة العنوان',
+            'describtion.required'=>'describtion is required'
+        ];
     }
 
 

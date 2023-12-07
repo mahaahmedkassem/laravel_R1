@@ -43,9 +43,11 @@
       <div class="form-group">
             <label for="image">Image:</label>
             <input type="file" class="form-control" id="image" name="image" value="{{ old('image') }}">
+           
             @error('image')
                 {{ $message }}
             @enderror
+
         </div>
       </div> 
     <div class="checkbox">

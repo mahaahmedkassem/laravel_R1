@@ -149,6 +149,9 @@ Route::get('showupload',[ExampleController::class, 'showupload']);
 
 Route::post('upload',[ExampleController::class, 'upload'])->name('upload');
 
+Route::get('place',[ExampleController::class, 'place']);
+Route::get('blog',[ExampleController::class, 'blog']);
+
 
 
 

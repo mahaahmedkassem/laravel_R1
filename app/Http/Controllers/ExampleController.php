@@ -45,6 +45,15 @@ class ExampleController extends Controller
         
     }
 
+
+    public function place(){
+        return view ('place');
+    }
+
+    public function blog(){
+        return view ('blog');
+    }
+    
     
 }
     

@@ -118,44 +118,44 @@ class CarController extends Controller
     {
        
         $data = Car::find($id);
-        $data=$request->validate([
-            'cartitle' => 'required|string|max:50',
-           'describtion' => 'required|string',
+        // $data=$request->validate([
+        //     'cartitle' => 'required|string|max:50',
+        //    'describtion' => 'required|string',
         
-          ]);
+        //   ]);
         
        
-        if ($request->hasfile('image')){
-            $file =$request->file('image');
+        // if ($request->hasfile('image')){
+        //     $file =$request->file('image');
           
-            $fileName=$this->uploadFile($request->image, 'assets/images');
-            $data['image']=$fileName;
+        //     $fileName=$this->uploadFile($request->image, 'assets/images');
+        //     $data['image']=$fileName;
                
-        }
-        
-        $data['published'] = isset($request['published'])? true:false;
-        Car::where('id', $id)->update($data);
-        return redirect('thecar');    
-
-        // $messages= $this->messages();
-
-        // $data = $request->validate([
-        //     'carTitle'=>'required|string',
-        //     'description'=>'required|string',
-        //     'image' => 'sometimes|mimes:png,jpg,jpeg|max:2048',
-        // ], $messages);
-       
-        // $data['published'] = isset($request->published);
-
-        // // update image if new file selected
-        // if($request->hasFile('image')){
-        //     $fileName = $this->uploadFile($request->image, 'assets/images');
-        //     $data['image']= $fileName;
         // }
-
-        // //return dd($data);
+        
+        // $data['published'] = isset($request['published'])? true:false;
         // Car::where('id', $id)->update($data);
-        // return 'Updated';
+        // return redirect('thecar');    
+
+        $messages= $this->messages();
+
+        $data = $request->validate([
+            'cartitle'=>'required|string',
+            'describtion'=>'required|string',
+            'image' => 'sometimes|mimes:png,jpg,jpeg|max:2048',
+        ], $messages);
+       
+        $data['published'] = isset($request->published);
+
+        // update image if new file selected
+        if($request->hasFile('image')){
+            $fileName = $this->uploadFile($request->image, 'assets/images');
+            $data['image']= $fileName;
+        }
+
+        //return dd($data);
+        Car::where('id', $id)->update($data);
+        return redirect('thecar'); 
             
         
        

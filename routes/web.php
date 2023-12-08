@@ -8,6 +8,7 @@ use App\Http\Controllers\addcar;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\news;
 use App\Http\Controllers\ClintController;
+use App\Http\Controllers\PlaceController;
 
 
 /*
@@ -231,4 +232,9 @@ Route::get('clientDetail/{id}', [ClintController::class, 'show'])->name('clientD
 Route::get('trashedclient',[ClintController ::class, 'trashed']);
 Route::get('clientrestore/{id}',[ClintController ::class, 'restore']);
 Route::get('forcedeleteClients/{id}',[ClintController::class, 'forcedelete']);
+
+
+
+Route::get('places',[PlaceController::class, 'index']);
+Route::post('placeadded',[PlaceController ::class, 'store'])->name('placeadded');
 

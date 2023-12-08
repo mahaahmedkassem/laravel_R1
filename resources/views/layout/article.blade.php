@@ -6,10 +6,13 @@
 <body>
 @include('includes.header')
 @include('includes.toparea')
+@include('includes.welcome')bbg
 
-@yield('content')
+@yield('content') 
+<!-- //محتوى صفحة البلوج -->
 
-@include('includes.footor')
-@include('includes.footorjs')
+
+@include('includes.footer')
+@include('includes.footerjs')
 </body>
 </html>

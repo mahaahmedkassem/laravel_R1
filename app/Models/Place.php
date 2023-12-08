@@ -6,15 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Car extends Model
+class Place extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory,  SoftDeletes;
     protected $fillable = [
-        'cartitle',
-        'describtion',
-        'published',
+        'title',
+        'description',
+        'from',
+        'to',
         'image',
-        'published',
+        'published'
+
         
         ];
 

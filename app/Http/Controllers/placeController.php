@@ -16,7 +16,8 @@ class placeController extends Controller
      */
     public function index()
     {
-       return view ('addplaces');
+        $places = Place::get();
+        return view('showplaces',compact('places'));
     }
 
     /**
@@ -24,7 +25,7 @@ class placeController extends Controller
      */
     public function create()
     {
-        //
+        return view ('addplaces');
     }
 
     /**
@@ -47,7 +48,7 @@ class placeController extends Controller
         $data['published'] = isset($request->published);
         Place::create($data);
 
-        return 'done';
+        return view ('addplaces');
     }
 
     /**

@@ -11,9 +11,7 @@ class placeController extends Controller
 {
 
     use Common;
-    /**
-     * Display a listing of the resource.
-     */
+   
     public function index()
     {
         $places = Place::get();
@@ -31,7 +29,7 @@ class placeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $messages= $this->messages();
 
@@ -48,7 +46,7 @@ class placeController extends Controller
         $data['published'] = isset($request->published);
         Place::create($data);
 
-        return 'done';
+        return redirect ('showplaces');
     }
 
     /**

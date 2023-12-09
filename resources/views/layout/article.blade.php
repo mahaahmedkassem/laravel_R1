@@ -6,7 +6,7 @@
 <body>
 @include('includes.header')
 @include('includes.toparea')
-@include('includes.welcome')bbg
+@include('includes.welcome')
 
 @yield('content') 
 <!-- //محتوى صفحة البلوج -->

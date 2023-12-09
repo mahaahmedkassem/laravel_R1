@@ -3,12 +3,12 @@
 
 <title>places</title>
 @extends('layout.article')
- 
+@section('content')
   <div class="container">
   
    
   
-  @section('content')
+
   <table class="table table-hover">
     <thead>
 
@@ -27,7 +27,7 @@
     @foreach($places as $data)
      
     <tr>
-        <td>{{$data->title}}</td>
+        <td><h1>{{$data->title}}</h1></td>
         <td>{{$data->description}}</td>
         <td>{{$data->from}}</td>
       <td>{{$data->to}}</td>
@@ -39,15 +39,14 @@
           @endif
 
       </td>
-      
-     
       </tr>
       @endforeach
-     
-  
-    </tbody>
+   
     @endsection
-  </table>
+  </table>  
+
+<!-- 
+
 </div>
 
 </body>

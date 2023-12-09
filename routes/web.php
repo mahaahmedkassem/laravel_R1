@@ -11,6 +11,7 @@ use App\Http\Controllers\ClintController;
 use App\Http\Controllers\PlaceController;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

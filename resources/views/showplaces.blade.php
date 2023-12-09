@@ -6,46 +6,50 @@
  
   <div class="container">
   
-  <p>The .table-hover class enables a hover state on table rows:</p>      
+   
   
   @section('content')
   <table class="table table-hover">
     <thead>
+
       <tr>
 
         <th>title</th>
         <th>content</th>
-        <th>published</th>
-        <th>from</th>
+       <th>from</th>
         <th>to</th>
         <th>image</th>
+        <th>published</th>
        
       </tr>
     </thead>
     <tbody>
-      @foreach($places as $place)
+    @foreach($places as $data)
+     
     <tr>
-        <td>{{$place->title}}</td>
-        <td>{{$place->description}}</td>
-        <td>@if ($place->published)
+        <td>{{$data->title}}</td>
+        <td>{{$data->description}}</td>
+        <td>{{$data->from}}</td>
+      <td>{{$data->to}}</td>
+      <td><img src="{{ asset('assets/images/'.$data->image) }}" alt="cars" style="width:150px;"></td>
+        <td>@if ($data->image)
           yes 🟢
           @else
           no 🛑
           @endif
 
       </td>
-      <td>{{$place->from}}</td>
-      <td>{{$place->to}}</td>
-      <td><img src="{{ asset('assets/images/'.$place->image) }}" alt="place" style="width:150px;"></td>
+      
      
       </tr>
       @endforeach
      
-      </tr>
+  
     </tbody>
+    @endsection
   </table>
 </div>
-@endsection
+
 </body>
 </html>
 

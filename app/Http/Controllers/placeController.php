@@ -48,7 +48,7 @@ class placeController extends Controller
         $data['published'] = isset($request->published);
         Place::create($data);
 
-        return view ('addplaces');
+        return 'done';
     }
 
     /**

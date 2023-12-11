@@ -236,6 +236,7 @@ Route::get('forcedeleteClients/{id}',[ClintController::class, 'forcedelete']);
 
 
 
+
 Route::get('addplaces',[PlaceController::class, 'create']);
 Route::post('placeadded',[PlaceController ::class, 'store'])->name('placeadded');
 Route::get('showplaces',[PlaceController::class, 'index']);

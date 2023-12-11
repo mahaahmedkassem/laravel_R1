@@ -14,7 +14,7 @@ class placeController extends Controller
    
     public function index()
     {
-        $places = Place::get();
+        $places = Place::latest()-> limit(6)->get();
         return view('showplaces',compact('places'));
     }
 

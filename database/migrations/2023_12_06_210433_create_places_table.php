@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('places', function (Blueprint $table) {
             $table->id();
-            $table->string('title',100);
+            $table->string('title');
            
-            $table->string('description',100);
-            $table->string('from',100);
-            $table->string('to',100);
+            $table->string('description');
+            $table->float('from');
+            $table->float('to');
             $table->string('image',100);
             $table->boolean('published');
             $table->softDeletes();

@@ -212,7 +212,7 @@ Route::get('editNews/{id}',[NewsController ::class, 'edit']);
 // الاكشن بتاعه هيبقى Updatenews   اسم البلاد فايل الجديد في ال الايديت بتاع الكونترولر
  //لاسم بتاع الايديت  الراوت ده عملته عن طريق اللينك  editNews ده الي كتبته في البلاد
 Route::put('updateNews/{id}',[NewsController ::class, 'update'])->name('updateNew');
-Route::get('DeleteNews/{id}',[NewsController ::class, 'destroy']);
+Route::get('DeleteNews/{id}',[NewsController ::class, 'destroy']); 
 Route::get('NewsDetail/{id}', [NewsController::class, 'show'])->name('NewsDetail');
 Route::get('trashednews',[NewsController ::class, 'trashed']);
 Route::get('restorenews/{id}',[NewsController ::class, 'restore']);
@@ -240,4 +240,6 @@ Route::get('forcedeleteClients/{id}',[ClintController::class, 'forcedelete']);
 Route::get('addplaces',[PlaceController::class, 'create']);
 Route::post('placeadded',[PlaceController ::class, 'store'])->name('placeadded');
 Route::get('showplaces',[PlaceController::class, 'index']);
-
+Route::get('placelist',[PlaceController::class, 'list']);
+Route::get('Deleteplace/{id}',[PlaceController ::class, 'destroy']);
+Route::get('trashedplace',[PlaceController ::class, 'trashed']);

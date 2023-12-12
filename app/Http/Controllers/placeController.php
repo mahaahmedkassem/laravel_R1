@@ -18,6 +18,12 @@ class placeController extends Controller
         return view('showplaces',compact('places'));
     }
 
+    public function list()
+    {
+        $places = Place::get();
+        return view('placelist',compact('places'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -78,7 +84,15 @@ class placeController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $places = Place::get();
+        Place::where('id', $id)->delete();
+         return view('placelist',compact('places'));  
+    }
+
+    public function trashed()
+    {
+        $places = Place::onlyTrashed()->get();
+        return view ('trashedplace', compact('places'));
     }
 
 

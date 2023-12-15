@@ -33,6 +33,28 @@
             <input type="file" class="form-control" id="image" name="image" value="{{ $car->image }}">
             <img src="{{ asset('assets/images/'.$car->image) }}" alt="cars" style="width:150px;">
         </div>
+        
+          <div class="form-group">
+            <label for="shortDescription">category:</label>
+            <select name="category_id" id="">
+              
+            @foreach ($categories as $version)
+
+            <option value="{{ $version }}" @selected(old('version') == $version)>
+            {{ $version }}
+
+        </option>
+    @endforeach
+                    
+
+
+   
+       
+        
+           
+        
+        </select>
+        </div>
       
     <div class="checkbox">
       <label><input type="checkbox" name="published" @checked($car->published)   > Published</label>

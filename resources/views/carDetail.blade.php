@@ -6,10 +6,14 @@
     <title>Car Details</title>
 </head>
 <body>
+
+
   <h2>  Car title: {{  $car->cartitle }} </h2>
     <br>
-   <h2> Car Description:{{  $car->describtion }} </h2> 
-    <br>
+    Car Description:{{  $car->describtion }} 
+    
+<br>
+    Category Details: {{ $car->category->categoryName }}
     
 </body>
 </html>

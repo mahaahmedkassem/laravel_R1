@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use App\Models\Car;
 use App\Traits\Common;
+use App\Models\Category;
 
 
 
@@ -27,6 +28,7 @@ class CarController extends Controller
     public function index()
     {
       $cars = Car::get();
+
       return view('carslist',compact('cars'));
     }
 
@@ -34,8 +36,10 @@ class CarController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
+    
     {
-        return view ("addcar");
+        $categories= Category::select('id','categoryName')->get();
+        return view ("addcar", compact('categories'));
     }
 
     /**
@@ -65,11 +69,16 @@ class CarController extends Controller
                  'cartitle' => 'required|string|max:50',
                 'describtion' => 'required|string',
                 'image' => 'required|mimes:png,jpg,jpeg|max:2048',
+                'category_id' => 'required'
+
+                
                ], $messages);
                $fileName=$this->uploadFile($request->image, 'assets/images');
                $data['image']=$fileName;
 
          $data['published'] = isset($request['published']);
+         
+
         
 
         //  $request->validate([
@@ -106,8 +115,10 @@ class CarController extends Controller
      */
     public function edit(string $id)
     {
+        $categories= Category::select('id','categoryName')->get();
+
         $car = Car::findorfail($id);
-        return view ('updateCar',compact('car'));
+        return view ('updateCar',compact('car','categories'));
 
     }
 
@@ -116,7 +127,8 @@ class CarController extends Controller
      */
     public function update(Request $request, string $id): RedirectResponse
     {
-       
+
+        $categories= Category::select('id','categoryName')->get();
         $data = Car::find($id);
         // $data=$request->validate([
         //     'cartitle' => 'required|string|max:50',
@@ -143,6 +155,7 @@ class CarController extends Controller
             'cartitle'=>'required|string',
             'describtion'=>'required|string',
             'image' => 'sometimes|mimes:png,jpg,jpeg|max:2048',
+            'category_id' => 'required'
         ], $messages);
        
         $data['published'] = isset($request->published);

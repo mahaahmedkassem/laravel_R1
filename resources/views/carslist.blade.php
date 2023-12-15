@@ -22,6 +22,8 @@
         <th>EDIT</th>
         <th>DELETE</th>
         <th>SHOW</th>
+        <th>category</th>
+
       </tr>
     </thead>
     <tbody>
@@ -39,6 +41,7 @@
       <td><a href="editCar/{{$car->id}}">Edit</a></td>
       <td><a href="deleteCar/{{$car->id}}">delete</a></td>
       <td><a href="carDetail/{{ $car->id }}">Show</a></td>
+      <td>{{ $car->category->categoryName }}</td>
       </tr>
       @endforeach
      

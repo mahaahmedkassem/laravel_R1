@@ -17,6 +17,8 @@ return new class extends Migration
             $table->text('describtion');
             $table->boolean('published');
             $table->string('image',100);
+            // $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('category_id')->constrained('categories');
             $table->softDeletes();
 
             $table->timestamps();

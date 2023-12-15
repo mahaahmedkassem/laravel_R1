@@ -31,7 +31,7 @@
     <tbody>
       @foreach($places as $place)
     <tr>
-    <td>{{$place->id}}</td>
+    <td>{{$place->id  }}</td>
         <td>{{$place->title}}</td>
         
     

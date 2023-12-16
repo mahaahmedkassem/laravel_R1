@@ -37,7 +37,7 @@
 
       
         <select class="form-control shadow-none" name="category_id">
-          
+        
    @foreach($categories as $category)
    <option  value="{{ $category->id }}"  > {{ $category->categoryName }}</option>
 

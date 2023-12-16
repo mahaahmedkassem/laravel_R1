@@ -128,8 +128,8 @@ class CarController extends Controller
     public function update(Request $request, string $id): RedirectResponse
     {
 
-        $categories= Category::select('id','categoryName')->get();
-        $data = Car::find($id);
+        // $categories= Category::select('id','categoryName')->get();
+        // $data = Car::find($id);
         // $data=$request->validate([
         //     'cartitle' => 'required|string|max:50',
         //    'describtion' => 'required|string',
@@ -155,7 +155,7 @@ class CarController extends Controller
             'cartitle'=>'required|string',
             'describtion'=>'required|string',
             'image' => 'sometimes|mimes:png,jpg,jpeg|max:2048',
-            'category_id' => 'required'
+            'category_id' => 'required|string'
         ], $messages);
        
         $data['published'] = isset($request->published);
@@ -168,6 +168,7 @@ class CarController extends Controller
 
         //return dd($data);
         Car::where('id', $id)->update($data);
+        
         return redirect('thecar'); 
             
         

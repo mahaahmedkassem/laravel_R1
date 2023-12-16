@@ -51,7 +51,7 @@
         </div>
       
       <div class="form-group">
-            <label for="shortDescription">Category:</label>
+      <label for="category">category:</label>
             <select name="category_id" id="">
                 <option value="">Select Category</option>
 

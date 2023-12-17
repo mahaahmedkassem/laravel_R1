@@ -19,7 +19,11 @@
     <div class="form-group">
       <label for="title">Title:</label>
       <input type="text" class="form-control" id="title" placeholder="Enter title" name="cartitle" value="{{$car->cartitle}}">
-    </div>
+      @error('cartitle')
+      <div class="alert alert-warning">
+      {{$message}}
+      </div>
+      @enderror
     <div class="form-group">
       <label for="price">Price:</label>
       <input type="number" class="form-control" id="price" placeholder="Enter Price" name="price">
@@ -27,11 +31,19 @@
     <div class="form-group">
         <label for="description">Description:</label>
         <textarea class="form-control" rows="5" name="describtion" id="description">{{$car->describtion}}</textarea>
+        @error('describtion')
+        <div class="alert alert-warning">
+      {{$message}}
+
+      @enderror
       </div> 
       <div class="form-group">
             <label for="image">Image:</label>
             <input type="file" class="form-control" id="image" name="image" value="{{ $car->image }}">
             <img src="{{ asset('assets/images/'.$car->image) }}" alt="cars" style="width:150px;">
+            @error('image')
+                {{ $message }}
+            @enderror
         </div>
        
 

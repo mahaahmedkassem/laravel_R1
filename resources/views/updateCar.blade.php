@@ -39,7 +39,7 @@
         <select class="form-control shadow-none" name="category_id">
         
    @foreach($categories as $category)
-   <option  value="{{ $category->id }}"  > {{ $category->categoryName }}</option>
+   <option  value="{{ $category->id }}" {{ $car->category_id ==  $category->id ? 'selected' : '' }} > {{ $category->categoryName }}</option>
 
 
        @endforeach

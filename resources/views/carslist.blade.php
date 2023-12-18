@@ -16,6 +16,7 @@
   <table class="table table-hover">
     <thead>
       <tr>
+      <th>ID</th>
         <th>title</th>
         <th>content</th>
         <th>published</th>
@@ -29,6 +30,7 @@
     <tbody>
       @foreach($cars as $car)
     <tr>
+    <td>{{$car->id}}</td>
         <td>{{$car->cartitle}}</td>
         <td>{{$car->describtion}}</td>
         <td>@if ($car->published)

@@ -76,3 +76,6 @@
 
 </body>
 </html>
+
+<!-- @selected( $category->id == $car->category_id) -->
+<!-- @selected( $category->categoryName == $car->category->categoryName) -->

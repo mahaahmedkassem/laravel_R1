@@ -9,6 +9,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\news;
 use App\Http\Controllers\ClintController;
 use App\Http\Controllers\PlaceController;
+use App\Http\Controllers\ContactController;
 
 
 
@@ -243,3 +244,10 @@ Route::get('showplaces',[PlaceController::class, 'index']);
 Route::get('placelist',[PlaceController::class, 'list']);
 Route::get('Deleteplace/{id}',[PlaceController ::class, 'destroy']);
 Route::get('trashedplace',[PlaceController ::class, 'trashed']);
+
+Auth::routes(['verify'=>true]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('contactus',[ContactController ::class, 'create']);
+Route::post('sendemail',[ContactController ::class, 'send'])->name('sendemail');

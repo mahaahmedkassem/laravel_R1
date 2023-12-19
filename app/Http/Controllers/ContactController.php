@@ -77,7 +77,7 @@ class ContactController extends Controller
 
       ]);
 
-      Mail::to('mahakassem22@gmail.com')->send(new ContactUs($data));
+      Mail::to('try@gmail.com')->send(new ContactUs($data));
 
       return 'email sended';
       

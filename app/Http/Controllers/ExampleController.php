@@ -53,6 +53,20 @@ class ExampleController extends Controller
     public function blog(){
         return view ('blog');
     }
+
+    public function mysession(){
+        session()->put('test', 'First Laravel session');
+        session()->forget('test');
+        $data = session('test');
+        return view ('session',compact('data'));
+    }
+
+
+     public function getsession(){
+        session()->put('test', 'First Laravel session');
+        $data = session('test');
+        return view ('session',compact('data'));
+    }
     
     
 }

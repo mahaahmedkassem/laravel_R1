@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Add Car</title>
+  <title>{{__('messege.addcar')}}</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -12,11 +12,16 @@
 <body>
 
 <div class="container">
-  <h2>Add Car</h2>
+<div>
+        <a href="{{ LaravelLocalization::getLocalizedURL('en') }}">English</a>
+        <a href="{{ LaravelLocalization::getLocalizedURL('ar') }}">Arabic</a>
+    </div>
+
+  <h2>{{__('messege.addcar')}}</h2>
   <form action="{{ route('cars')}}" method="post"  enctype="multipart/form-data" >
   @csrf
     <div class="form-group">
-      <label for="title">Title:</label>
+      <label for="title">{{__('messege.title')}}</label>
       <input type="text" class="form-control" id="title" placeholder="Enter title" name="cartitle" value="{{ old('cartitle') }}">
       @error('cartitle')
       <div class="alert alert-warning">
@@ -26,13 +31,13 @@
        
         </div>
     <div class="form-group">
-      <label for="price">Price:</label>
+      <label for="price">{{__('messege.price')}}:</label>
       <input type="number" class="form-control" id="price" placeholder="Enter Price" name="price">
      
 
     </div>
     <div class="form-group">
-        <label for="description">Description:</label>
+        <label for="description">{{__('messege.description')}}:</label>
         <textarea class="form-control" rows="5" name="describtion" id="description"> {{ old('describtion') }} </textarea>
         @error('describtion')
         <div class="alert alert-warning">
@@ -41,19 +46,19 @@
       @enderror
       </div>
       <div class="form-group">
-            <label for="image">Image:</label>
+            <label for="image">{{__('messege.image')}}:</label>
             <input type="file" class="form-control" id="image" name="image" value="{{ old('image') }}">
-           
+            <div class="alert alert-warning">
             @error('image')
                 {{ $message }}
             @enderror
-
+            </div>
         </div>
       
       <div class="form-group">
-      <label for="category">category:</label>
+      <label for="category">{{__('messege.carcategory')}}:</label>
             <select name="category_id" id="">
-                <option value="">Select Category</option>
+                <option value="">{{__('messege.carcategory')}}</option>
 
                 @foreach($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->categoryName }}</option>
@@ -67,9 +72,9 @@
 
 
     <div class="checkbox">
-      <label><input type="checkbox" name="published"> Published</label>
+      <label><input type="checkbox" name="published"> {{__('messege.puplished')}}</label>
     </div>
-    <button type="submit" class="btn btn-default">Add</button>
+    <button type="submit" class="btn btn-default">{{__('messege.add')}}</button>
   </form>
 </div>
 

@@ -13,7 +13,7 @@
 <body>
   
 <div class="container">
-  <h2>contact us</h2>
+  <h2>{{__('messege.Contactus')}}</h2>
 
   <form action="{{ route('sendemail')}}" method="post"  enctype="multipart/form-data" >
   @csrf

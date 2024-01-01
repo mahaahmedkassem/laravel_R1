@@ -154,6 +154,12 @@ Route::post('upload',[ExampleController::class, 'upload'])->name('upload');
 
 Route::get('place',[ExampleController::class, 'place']);
 Route::get('blog',[ExampleController::class, 'blog']);
+ 
+
+
+///session
+Route::get('flashsession',[ExampleController::class, 'mysession']);
+Route::get('session',[ExampleController::class, 'getsession']);
 
 
 
@@ -176,8 +182,8 @@ Route::get('test2',[CarlistController ::class, 'test2']);
 
 
 
-Route::get('addshow',[CarController ::class, 'create']);// يعرض ألنموذج
-Route::post('cars',[CarController ::class, 'store'])->name('cars');
+// يعرض ألنموذج
+
 Route::get('trashed',[CarController ::class, 'trashed']);
 Route::get('restorecar/{id}',[CarController ::class, 'restore']);   //لينك في البلاد بتاع تراش
 Route::get('forcedelete/{id}',[CarController ::class, 'forcedelete']);
@@ -187,7 +193,7 @@ Route::get('forcedelete/{id}',[CarController ::class, 'forcedelete']);
 //اسم الراوت هو الي في الاكشن في صفحة البلاد ->
 //ا في الراوت الاولاني بيبقى في create ده بيظهر الفورم
 // ده بضيف للداتا بيز في الراوت التاني بيقى في الستور في الكونترولر
-Route::get('thecar',[CarController ::class, 'index']);
+Route::get('thecar',[CarController ::class, 'index'])->middleware('verified');
 
 Route::get('editCar/{id}',[CarController ::class, 'edit']);
 
@@ -249,5 +255,20 @@ Auth::routes(['verify'=>true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('contactus',[ContactController ::class, 'create']);
-Route::post('sendemail',[ContactController ::class, 'send'])->name('sendemail');
+
+
+
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function(){ 
+        Route::get('contactus',[ContactController ::class, 'create']);
+        Route::post('sendemail',[ContactController ::class, 'send'])->name('sendemail');
+        Route::get('addshow',[CarController ::class, 'create']);
+        Route::post('cars',[CarController ::class, 'store'])->name('cars');
+
+    });
+
+
+    

@@ -59,12 +59,8 @@ class CarController extends Controller
         // return "car title is" .$request->cartitle;
 
 
-        $messages=[
-            'cartitle.required'=>'الرجاء اضافة العنوان',
-            'describtion.required'=>'describtion is required'
-
-
-        ];
+        $messages= $this->messages();
+        
         $data=$request->validate([
                  'cartitle' => 'required|string|max:50',
                 'describtion' => 'required|string',
@@ -196,11 +192,6 @@ class CarController extends Controller
 
     
 
-    public function restore (string $id):  RedirectResponse
-    {
-        Car::where('id', $id)->restore();
-        return redirect('thecar');
-    }
 
 
  
@@ -214,8 +205,9 @@ class CarController extends Controller
 
     public function messages(){
         return [
-            'cartitle.required'=>'الرجاء اضافة العنوان',
-            'describtion.required'=>'describtion is required'
+            'cartitle.required'=>__('messege.titleeror'),
+            'describtion.required'=>__('messege.descriptioneror'),
+            'image.required'=>__('messege.imageeror'),
         ];
     }
 

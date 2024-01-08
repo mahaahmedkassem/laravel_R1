@@ -3,7 +3,11 @@
 namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
+
+use App\Console\Commands\Expiration;
+use App\Console\Commands\DatabaseBackup;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Storage;
 
 class Kernel extends ConsoleKernel
 {
@@ -12,7 +16,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+         $schedule->command('user:expiration')->everyMinute();
+        $schedule->command('db:backup')->daily();
     }
 
     /**
